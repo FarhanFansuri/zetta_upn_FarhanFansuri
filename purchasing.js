@@ -1,3 +1,5 @@
+
+
 function stuffOfPurchasing(data, installment, interest) {
     result = [];
     data.forEach(element => {    
@@ -16,16 +18,16 @@ function stuffOfPurchasing(data, installment, interest) {
     return result;
 }
 
-data = [
-    {
-        title:'motor',
-        price:20000000
-    },
-    {
-        title:'emas',
-        price:5000000
-    }
-]
+// data = [
+//     {
+//         title:'motor',
+//         price:20000000
+//     },
+//     {
+//         title:'emas',
+//         price:5000000
+//     }
+// ]
 
 
 module.exports = stuffOfPurchasing
