@@ -1,11 +1,26 @@
 {
+<<<<<<< HEAD
   "name": "zetta",
   "version": "1.0.0",
   "description": "",
+=======
+  "name": "day-04-07",
+  "version": "1.0.0",
+  "description": "pelatihan zetta back-end",
+>>>>>>> e90c1dd (day-4-javascript)
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
+<<<<<<< HEAD
   "license": "ISC"
+=======
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1",
+    "nodemon": "^2.0.22"
+  }
+>>>>>>> e90c1dd (day-4-javascript)
 }
