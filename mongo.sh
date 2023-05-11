@@ -1,3 +1,5 @@
+#MONGODB DAY 1
+
 #check database
 show dbs;
 
