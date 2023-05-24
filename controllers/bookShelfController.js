@@ -28,5 +28,23 @@ async function getDataDistinct(){
     return await bookShelfModel.distinct("genre");
 }
 
+async function getDataProjection(column){
+    const condition = {}
+    condition[column] = 1;
+    return await bookShelfModel.find({},condition);
+}
 
-module.exports = {addData, getData, getDataElemMatch, getDataDistinct, getDataArrayFilter}
+async function manipulateDataAddFields(){
+    return await bookShelfModel.aggregate([
+        {$addFields : {after_discount : { $multiply : ["$price", 0.1]}}},
+    ]);
+}
+
+async function manipulateDataUnwind(){
+    return await bookShelfModel.aggregate([
+        {$unwind: "$author"}
+    ]);
+}
+
+
+module.exports = {addData, getData, getDataElemMatch, getDataDistinct, getDataArrayFilter, getDataProjection, manipulateDataAddFields, manipulateDataUnwind}
