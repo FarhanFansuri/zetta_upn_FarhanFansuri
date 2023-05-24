@@ -18,15 +18,22 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-app.get('/api/books/bookshelf/get/:id',(req,res)=>{
 
-    bookShelfController.getData(req.params.id).then((data)=>{
+app.get('/api/books/bookshelf/get/genres',(req,res)=>{
+    bookShelfController.getDataDistinct().then((data)=>{
         res.json(data);
     }).catch(err => console.error(err));
 })
 
+app.get('/api/books/bookshelf/get/author',(req,res)=>{
+    bookShelfController.getDataElemMatch(req.body.tahun_lahir).then((data)=>{
+        res.json(data);
+    }).catch(err => console.error(err));
+})
+
+
 app.post('/api/books/bookshelf/post',(req,res)=>{
-    bookShelfController.addData(req.body.id, req.body.title, req.body.author, req.body.price ).then(()=>{
+    bookShelfController.addData(req.body.id, req.body.title, req.body.author, req.body.price, req.body.genres ).then(()=>{
         console.log('data succesfully added')
     }).catch(err=> console.log(err))
     res.send('processing')
