@@ -6,6 +6,7 @@ show dbs;
 #use database
 use "database"
 
+
 #view collections
 show collections
 
