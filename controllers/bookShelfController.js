@@ -13,6 +13,10 @@ async function addData(id,title,author,price, genres){
 async function getData(id){
     return await bookShelfModel.find({id:id});
 }
+async function getAllData(){
+    return await bookShelfModel.find();
+}
+
 
 async function getDataElemMatch(tahun_lahir) {
     const data = await bookShelfModel.find({author : {$elemMatch : {tahun_lahir : {$gt : 1000}}}});
@@ -47,4 +51,4 @@ async function manipulateDataUnwind(){
 }
 
 
-module.exports = {addData, getData, getDataElemMatch, getDataDistinct, getDataArrayFilter, getDataProjection, manipulateDataAddFields, manipulateDataUnwind}
+module.exports = {addData, getData, getAllData, getDataElemMatch, getDataDistinct, getDataArrayFilter, getDataProjection, manipulateDataAddFields, manipulateDataUnwind}

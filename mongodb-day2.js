@@ -16,12 +16,18 @@ mongoose.connect('mongodb://127.0.0.1:27017/',{ useNewUrlParser: true, useUnifie
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-app.get('/api/books/view',(req,res)=>{
-    res.send('Hello World')
+app.get('/api/books/purchasing/view',(req,res)=>{
+
+    bookShelfController.getAllData().then((data)=>{
+        res.json(data);
+    }).catch(err => console.error(err));
 })
 
-app.post('/api/books/purchasing',(req,res)=>{
-    res.send('Hello World')
+app.post('/api/books/purchasing/post',(req,res)=>{
+    bookShelfController.addData(req.body.id, req.body.title, req.body.interest, req.body.amount, req.body.price).then(()=>{
+        console.log('data succesfully added')
+    }).catch(err=> console.log(err))
+    res.send('processing')
 })
 
 app.listen(port,()=>{
