@@ -6,6 +6,7 @@ const bookSchema = new mongoose.Schema({
     amount: Number
 })
 
+
 const bookModel = mongoose.model('Book', bookSchema);
 
 module.exports = bookModel;
